@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empresa de Treminio - Plataforma Corporativa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* =========================================================================
+           SISTEMA DE COLORES "TREMINIO" (VERDE ESMERALDA, ORO Y CREMA)
+           ========================================================================= */
+        :root {
+            --treminio-green-dark: #0a1f1b;
+            --treminio-green-medium: #143d34;
+            --treminio-green-accent: #1a5c4e;
+            --treminio-gold: #D4AF37;
+            --treminio-gold-light: #f3e5ab;
+            --treminio-cream: #fcf8f2;
+            --treminio-white: #ffffff;
+            --treminio-silver: #9ca3af;
+            --font-main: 'Montserrat', sans-serif;
+            --font-sub: 'Inter', sans-serif;
+            --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        * {
+            margin: 0; padding: 0; box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--treminio-green-dark);
+            background-image: radial-gradient(circle at top right, #143d34, #0a1f1b);
+            color: var(--treminio-cream);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* BOTONES NORMALES / CORPORATIVOS */
+        .btn-corporate {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--treminio-gold);
+            color: var(--treminio-green-dark);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            border: 2px solid var(--treminio-gold);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        .btn-corporate:hover {
+            background-color: transparent;
+            color: var(--treminio-gold);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--treminio-gold);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--treminio-gold);
+            color: var(--treminio-green-dark);
+        }
+
+        /* HEADER */
+        .navbar {
+            position: fixed;
+            top: 0; width: 100%; height: 90px;
+            background: rgba(10, 31, 27, 0.95);
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 5%; z-index: 1000;
+            border-bottom: 2px solid var(--treminio-gold);
+        }
+
+        .logo-area h1 {
+            font-size: 1.4rem; font-weight: 800; color: var(--treminio-white);
+        }
+        .logo-area h1 span { color: var(--treminio-gold); }
+        .logo-area p {
+            font-size: 0.7rem; color: var(--treminio-gold-light);
+            text-transform: uppercase; letter-spacing: 2px;
+        }
+
+        .nav-links { display: flex; gap: 15px; }
+
+        /* MAIN WRAPPER */
+        .main-container {
+            max-width: 1200px; margin: 0 auto; padding: 130px 20px 60px;
+        }
+
+        .hero-card {
+            background: var(--treminio-green-medium);
+            padding: 50px; border-radius: 15px; text-align: center;
+            border: 1px solid var(--treminio-gold);
+            box-shadow: var(--shadow-soft);
+            margin-bottom: 40px;
+        }
+
+        .hero-card h2 { font-size: 2.5rem; margin-bottom: 10px; color: var(--treminio-white); }
+        .hero-card p.subtitle { color: var(--treminio-gold); font-weight: 600; font-size: 1.2rem; }
+
+        /* COC SECTION (Cultura Organizacional Corporativa) */
+        .coc-section {
+            background: rgba(252, 248, 242, 0.05);
+            padding: 40px; border-radius: 15px; border-left: 5px solid var(--treminio-gold);
+            margin-bottom: 50px;
+        }
+
+        .coc-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px; margin-top: 30px;
+        }
+
+        .coc-pillar {
+            background: var(--treminio-green-accent);
+            padding: 25px; border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .coc-pillar:hover { transform: translateY(-5px); }
+        .coc-pillar i { font-size: 2rem; color: var(--treminio-gold); margin-bottom: 15px; }
+        .coc-pillar h4 { font-size: 1.2rem; color: var(--treminio-gold-light); margin-bottom: 10px; }
+        .coc-pillar p { font-size: 0.9rem; color: var(--treminio-cream); opacity: 0.9; }
+
+        /* ORGANIGRAMA */
+        .org-title { text-align: center; margin-bottom: 40px; }
+        .org-title h3 { font-size: 2rem; color: var(--treminio-gold); }
+        
+        .tree-container { display: flex; flex-direction: column; gap: 30px; }
+        .tree-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+        
+        .node {
+            background: var(--treminio-green-medium);
+            border: 1px solid var(--treminio-gold);
+            padding: 15px; border-radius: 8px; width: 220px; text-align: center;
+            cursor: pointer; transition: 0.3s;
+        }
+        .node:hover { background: var(--treminio-gold); }
+        .node:hover h5, .node:hover span { color: var(--treminio-green-dark); }
+        .node span { display: block; font-size: 0.65rem; color: var(--treminio-gold); font-weight: 700; margin-bottom: 5px; }
+        .node h5 { font-size: 0.85rem; color: var(--treminio-white); }
+
+        /* VACANTES MODAL */
+        .modal-vacantes {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: var(--treminio-green-dark); z-index: 2000;
+            display: none; padding: 100px 5% 50px; overflow-y: auto;
+        }
+        .modal-vacantes.active { display: block; }
+
+        .vacantes-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px; margin: 40px 0;
+        }
+        .v-card {
+            background: var(--treminio-green-medium); padding: 25px;
+            border-radius: 12px; border: 1px solid var(--treminio-gold);
+            text-align: center;
+        }
+        .v-card h4 { color: var(--treminio-gold); margin-bottom: 10px; }
+
+        .slider-container {
+            width: 100%; overflow: hidden; background: #071613; padding: 20px 0;
+            border-radius: 10px; margin: 20px 0;
+        }
+        .slider-track {
+            display: flex; width: calc(250px * 20);
+            animation: scroll 40s linear infinite;
+        }
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-250px * 10)); }
+        }
+
+        footer {
+            text-align: center; padding: 40px; background: #05100e;
+            border-top: 1px solid var(--treminio-gold); color: var(--treminio-silver);
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="logo-area">
+            <h1>EMPRESA DE <span>TREMINIO</span></h1>
+            <p>Los Mejores Frappes</p>
+        </div>
+        <nav class="nav-links">
+            <button class="btn-corporate btn-outline" onclick="location.href='#organigrama'">Organigrama</button>
+            <button class="btn-corporate" onclick="toggleVacantes(true)">Vacantes Disponibles</button>
+        </nav>
+    </header>
+
+    <main class="main-container">
+        <section class="hero-card">
+            <h2>Pasión por el Sabor Gourmet</h2>
+            <p class="subtitle">Estructura Corporativa y Cultura Organizacional</p>
+            <p style="margin-top: 20px; font-size: 0.95rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+                Somos una empresa salvadoreña dedicada a rescatar el sabor auténtico a través de frapés y bebidas artesanales, 
+                bajo un modelo de excelencia operativa y expansión de franquicias.
+            </p>
+        </section>
+
+        <section class="coc-section">
+            <h3 style="color: var(--treminio-gold); font-size: 1.8rem; text-align: center;">Cultura Organizacional Corporativa (COC)</h3>
+            <p style="text-align: center; opacity: 0.8;">Nuestros pilares fundamentales en la Empresa de Treminio</p>
+            
+            <div class="coc-grid">
+                <div class="coc-pillar">
+                    <i class="fa-solid fa-mug-hot"></i>
+                    <h4>Sabor Innegociable</h4>
+                    <p>Cada frapé es una obra de arte. No servimos nada que no cumpla con nuestro estándar de "El Mejor Sabor".</p>
+                </div>
+                <div class="coc-pillar">
+                    <i class="fa-solid fa-hand-holding-heart"></i>
+                    <h4>Hospitalidad en Barra</h4>
+                    <p>No somos despachadores, somos anfitriones. El cliente debe sentirse en casa desde el primer saludo.</p>
+                </div>
+                <div class="coc-pillar">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <h4>Agilidad Treminio</h4>
+                    <p>Rapidez sin sacrificar calidad. Optimizamos nuestros procesos para que el sabor llegue fresco y a tiempo.</p>
+                </div>
+                <div class="coc-pillar">
+                    <i class="fa-solid fa-shield-virus"></i>
+                    <h4>Inocuidad Total</h4>
+                    <p>La higiene es nuestra base. Estrictos protocolos de limpieza para garantizar salud en cada sorbo.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="organigrama" class="org-title">
+            <h3>Mapa Jerárquico Treminio</h3>
+            <p>Estructura de 25 puestos clave para la operación nacional</p>
+            <div class="tree-container" id="org-render" style="margin-top: 40px;"></div>
+        </section>
+    </main>
+
+    <div id="modalVacantes" class="modal-vacantes">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <h2 style="color: var(--treminio-gold);">Oportunidades de Carrera</h2>
+            <button class="btn-corporate btn-outline" onclick="toggleVacantes(false)">Cerrar ✕</button>
+        </div>
+
+        <div class="slider-container">
+            <div class="slider-track" id="vacantes-slider"></div>
+        </div>
+
+        <div style="background: var(--treminio-green-medium); padding: 40px; border-radius: 15px; border: 1px solid var(--treminio-gold); text-align: center;">
+            <h3>¿Quieres unirte al equipo?</h3>
+            <p style="margin: 15px 0 25px;">Selecciona el formulario oficial de postulación o revisa nuestras plantillas.</p>
+            
+            <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap;">
+                <a href="https://forms.gle/6PheJEwEdsz7Dtc3A" target="_blank" class="btn-corporate" style="background: #2dcd73; border-color: #2dcd73; color: white;">
+                   <i class="fa-brands fa-google"></i> Llenar Google Form ➔
+                </a>
+                <a href="https://canva.link/mim2zlrtghsk30r" target="_blank" class="btn-corporate btn-outline">Modelo Currículo</a>
+                <a href="https://canva.link/875diqbig13rq8n" target="_blank" class="btn-corporate btn-outline">Hoja de Vida</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>Aura Distribuidora S.A. de C.V. & Empresa de Treminio © 2024. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // 25 PUESTOS ADAPTADOS
+        const puestos = [
+            { n: 1, p: "Director Ejecutivo (CEO)", d: "Visión estratégica y expansión de marca." },
+            { n: 2, p: "Gerente de Operaciones", d: "Control de sucursales y logística." },
+            { n: 2, p: "Gerente Administrativo Financiero", d: "Finanzas, compras e impuestos." },
+            { n: 2, p: "Gerente de Marketing y Franquicias", d: "Publicidad y nuevos socios." },
+            { n: 3, p: "Contador General", d: "Registros contables y auditoría interna." },
+            { n: 3, p: "Jefe de Recursos Humanos", d: "Gestión de talento y capacitaciones." },
+            { n: 3, p: "Jefe de Compras y Suministros", d: "Negociación con proveedores de café y lácteos." },
+            { n: 3, p: "Supervisor Nacional de Sucursales", d: "Auditoría de calidad en puntos de venta." },
+            { n: 3, p: "Coordinador de Logística y Despacho", d: "Rutas de entrega de insumos." },
+            { n: 4, p: "Administrador de Sucursal A", d: "Gestión operativa de punto de venta." },
+            { n: 4, p: "Administrador de Sucursal B", d: "Gestión operativa de punto de venta." },
+            { n: 4, p: "Administrador de Sucursal C", d: "Gestión operativa de punto de venta." },
+            { n: 4, p: "Encargado de Almacén Central", d: "Control de inventario físico." },
+            { n: 4, p: "Jefe de Mantenimiento Técnico", d: "Reparación de máquinas de frapé y café." },
+            { n: 4, p: "Community Manager", d: "Redes sociales y atención digital." },
+            { n: 5, p: "Barista Líder (Trainer)", d: "Estandarización de recetas y formación." },
+            { n: 5, p: "Barista Prep Sucursal A", d: "Preparación y despacho." },
+            { n: 5, p: "Barista Prep Sucursal B", d: "Preparación y despacho." },
+            { n: 5, p: "Barista Prep Sucursal C", d: "Preparación y despacho." },
+            { n: 5, p: "Cajero Principal", d: "Manejo de valores y arqueos." },
+            { n: 5, p: "Auxiliar de Bodega", d: "Carga y descarga de insumos." },
+            { n: 5, p: "Motorista de Reparto Insumos", d: "Transporte pesado interno." },
+            { n: 5, p: "Repartidor Delivery Moto", d: "Entrega a domicilio final." },
+            { n: 5, p: "Auxiliar de Limpieza e Higiene", d: "Mantenimiento de áreas comunes." },
+            { n: 5, p: "Asistente Administrativo", d: "Apoyo en gestiones de oficina." }
+        ];
+
+        // 10 VACANTES
+        const vacantes = [
+            { t: "Barista Especialista", l: "San Salvador" },
+            { t: "Administrador de Punto", l: "Santa Tecla" },
+            { t: "Supervisor de Sucursales", l: "Nacional" },
+            { t: "Motorista de Distribución", l: "Bodega" },
+            { t: "Asistente Contable", l: "Oficina" },
+            { t: "Barista de Fin de Semana", l: "Multiplaza" },
+            { t: "Cajero / Atención", l: "San Miguel" },
+            { t: "Técnico en Refrigeración", l: "Campo" },
+            { t: "Auxiliar de Cocina", l: "Producción" },
+            { t: "Jefe de Recursos Humanos", l: "Corporativo" }
+        ];
+
+        function renderOrg() {
+            const container = document.getElementById('org-render');
+            const niveles = [1, 2, 3, 4, 5];
+            niveles.forEach(n => {
+                const row = document.createElement('div');
+                row.className = 'tree-row';
+                puestos.filter(p => p.n === n).forEach(p => {
+                    const node = document.createElement('div');
+                    node.className = 'node';
+                    node.innerHTML = `<span>Nivel ${p.n}</span><h5>${p.p}</h5>`;
+                    node.title = p.d;
+                    row.appendChild(node);
+                });
+                container.appendChild(row);
+            });
+        }
+
+        function renderSlider() {
+            const track = document.getElementById('vacantes-slider');
+            const double = [...vacantes, ...vacantes];
+            double.forEach(v => {
+                const item = document.createElement('div');
+                item.className = 'v-card';
+                item.style.minWidth = '230px';
+                item.style.marginRight = '20px';
+                item.innerHTML = `<h4>${v.t}</h4><p>${v.l}</p><br><span style="color:white; font-size:0.7rem;">Postulación Abierta</span>`;
+                track.appendChild(item);
+            });
+        }
+
+        function toggleVacantes(show) {
+            document.getElementById('modalVacantes').classList.toggle('active', show);
+        }
+
+        window.onload = () => { renderOrg(); renderSlider(); };
+    </script>
+</body>
+</html>
